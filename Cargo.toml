@@ -1,0 +1,15 @@
+[package]
+name = "hush"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+crossterm = "0.29.0"
+eyre = "0.6.14"
+ratatui = "0.30.2"
+
+[profile.release]
+opt-level = "z"     # Boyut optimizasyonu
+lto = true          # Link-time optimization
+codegen-units = 1   # Daha agresif kod optimizasyonu
+panic = "abort"     # Unwind kodlarını ve allocation yükünü temizler
